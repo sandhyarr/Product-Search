@@ -1,65 +1,118 @@
-﻿# AdNabu QA Assignment
+# AdNabu Product Search Automation
 
-## Task 1: Test Design
+AdNabu Product Search Automation is a Selenium-based automation testing project developed using Python for testing core e-commerce functionalities such as product search and add-to-cart workflow.
 
-### A) Product Search (3 test cases)
+This project was created as part of a QA Automation assessment for the web application **AdNabuTestStore**, an online e-commerce platform.
 
-- **TC-PS-01 (Positive): Search with exact product keyword**  
-  Steps: Open store -> search with valid product keyword (e.g., `shirt`) -> submit search.  
-  Expected: Relevant products are shown and at least one product card is visible.
+---
 
-- **TC-PS-02 (Negative): Search with invalid/non-existing keyword**  
-  Steps: Search using a random string (e.g., `zzzznotaproduct123`).  
-  Expected: "No results" state appears and no product cards are listed.
+# Project Objective
 
-- **TC-PS-03 (Edge): Search with leading/trailing spaces**  
-  Steps: Search with `  shirt  ` (extra spaces around keyword).  
-  Expected: Input is handled gracefully (trimmed or processed) and relevant results are still returned.
+The objective of this project is to:
 
-### B) Add to Cart (3 test cases)
+* Design high-quality test cases for Product Search and Add to Cart modules
+* Automate the product search and add-to-cart functionality
+* Validate the successful user workflow in an e-commerce application
+* Demonstrate Selenium automation using Python with proper waits and modular code structure
 
-- **TC-AC-01 (Positive): Add in-stock product to cart**  
-  Steps: Open product detail page for in-stock item -> click **Add to cart**.  
-  Expected: Item is added and cart count/cart drawer updates correctly.
+---
 
-- **TC-AC-02 (Negative): Add out-of-stock product to cart**  
-  Steps: Open out-of-stock product page -> attempt add to cart.  
-  Expected: Add button is disabled or clear stock message is shown; item is not added.
+# Working Model
 
-- **TC-AC-03 (Edge): Rapid double-click on Add to cart**  
-  Steps: On product page, click **Add to cart** twice quickly.  
-  Expected: Cart behavior is deterministic (either quantity increments correctly or duplicate prevention works as designed), no UI crash/error.
+The automation process follows a real-time user shopping workflow:
 
-## Task 2: Automation (Python + Selenium)
+1. Open the browser
+2. Launch the AdNabuTestStore website
+3. Search for a product using the search bar
+4. Display matching search results
+5. Select the required product
+6. Open the product details page
+7. Add the product to the cart
+8. Verify the product is successfully added to the cart
+9. Complete the automation execution
 
-Automated scenario: **Search for a product and add it to the cart successfully**
+---
 
-### Files
-- `tests/test_search_add_to_cart.py` - Selenium automation script (modular page object style, explicit waits, no hardcoded sleep)
-- `requirements.txt` - Python dependencies
-- `reports/latest_run.txt` - generated test execution output
+# Features Covered
 
-### Setup
-1. Install Python 3.10+.
-2. Install dependencies:
-   ```bash
-   pip install -r requirements.txt
-   ```
+## Product Search
 
-### Run
-```bash
-python tests/test_search_add_to_cart.py
-```
+* Search products using keywords
+* Validate search results
+* Handle invalid searches
+* Verify product visibility
 
-### Expected console output on success
+## Add to Cart
+
+* Add product to shopping cart
+* Verify successful cart addition
+* Validate cart workflow
+* Basic end-to-end shopping validation
+
+---
+
+# Technologies Used
+
+* Python
+* Selenium WebDriver
+* ChromeDriver
+* Explicit Waits
+
+---
+
+# Project Structure
+
 ```text
-PASS: Product search and add-to-cart flow succeeded.
+Adnabu Automation script/
+│
+├── README.md
+├── requirements.txt
+├── reports/
+│   └── latest_run.txt
+│
+└── tests/
+    └── product_search.py
 ```
 
-## Test Report
+---
 
-Latest generated report:
-- File: `reports/latest_run.txt`
-- Result in this environment: **FAILED**
-- Failure reason: Browser process launch is blocked in this sandbox (Chrome exits before WebDriver session starts).
-- Note: Script is ready; run the same command on a normal local desktop session to execute end-to-end.
+# Automation Requirements Followed
+
+* Used Python with Selenium
+* Implemented proper waits instead of hardcoded sleeps
+* Maintained readable and modular code
+* Performed end-to-end product search and cart validation
+
+---
+
+# Scope of Project
+
+This project focuses only on the requested automation scenario and does not include:
+
+* Full automation framework setup
+* Cross-browser execution
+* Advanced reporting tools
+* Complete application test coverage
+
+---
+
+# Expected Outcome
+
+The automation script should successfully:
+
+* Open the e-commerce website
+* Search for the required product
+* Add the product to the shopping cart
+* Validate successful cart addition without failures
+
+---
+
+# Purpose of the Project
+
+This project demonstrates practical QA Automation skills including:
+
+* Manual test design
+* Selenium automation
+* E-commerce workflow validation
+* Basic automation scripting using Python
+* Real-time user scenario testing
